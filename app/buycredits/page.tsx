@@ -15,7 +15,7 @@ import Image from "next/image"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
-const buycredits = () => {
+const BuyCredits = () => {
   const router = useRouter();
   const { user } = useUser();  // Get the user object
 
@@ -56,11 +56,11 @@ const buycredits = () => {
               <h1 className="font-bold text-3xl flex justify-center items-center">$10</h1>
               <div className="flex flex-col space-y-1.5">
                 <span className="flex items-center">
-                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="/images/check.png" alt="Logo" className='h-3 w-3 mr-2' width={3} height={3} />
                   <p>200 credits</p>
                 </span>
                 <span className="flex items-center">
-                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="/images/check.png" alt="Logo" className='h-3 w-3 mr-2' width={3} height={3} />
                   <p>$0.05 per image restoration</p>
                 </span>
               </div>
@@ -80,11 +80,11 @@ const buycredits = () => {
               <h1 className="font-bold text-3xl flex justify-center items-center">$20</h1>
               <div className="flex flex-col space-y-1.5">
                 <span className="flex items-center">
-                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="/images/check.png" alt="Logo" className='h-3 w-3 mr-2' width={3} height={3} />
                   <p>500 credits</p>
                 </span>
                 <span className="flex items-center">
-                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="/images/check.png" alt="Logo" className='h-3 w-3 mr-2' width={3} height={3} />
                   <p>$0.04 per image restoration</p>
                 </span>
               </div>
@@ -104,10 +104,6 @@ const buycredits = () => {
             <AccordionTrigger>Is there a free trial?</AccordionTrigger>
             <AccordionContent>Yes. When you create an account for the first time you get 5 free credits.</AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Where can I find all the photos I've restored?</AccordionTrigger>
-            <AccordionContent>Yes. When you create an account you get 5 free credits.</AccordionContent>
-          </AccordionItem>
         </Accordion>
       </div>
       <div className="divider mt-10"></div>
@@ -115,4 +111,4 @@ const buycredits = () => {
   );
 };
 
-export default buycredits;
+export default BuyCredits;
