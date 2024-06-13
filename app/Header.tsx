@@ -4,6 +4,7 @@ import { UserButton, useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from "next/image"
 
 export default function Header() {
     const { user, isLoaded } = useUser();
@@ -17,7 +18,7 @@ export default function Header() {
         <div className='flex flex-col md:flex-row justify-between items-center py-4 px-7 border-b w-full'>
             <div className='container mx-auto flex justify-between items-center w-full'>
                 <Link className='text-2xl font-bold flex items-center gap-2' href='/'>
-                    <img src="images/camera.png" alt="Logo" className='h-6 w-6 mr-2' />
+                    <Image src="/images/camera.png" alt="Logo" className='h-6 w-6 mr-2' width={350} height={350} />
                     Picsify
                 </Link>
 

@@ -11,6 +11,7 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
+import Image from "next/image"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
@@ -55,11 +56,11 @@ const buycredits = () => {
               <h1 className="font-bold text-3xl flex justify-center items-center">$10</h1>
               <div className="flex flex-col space-y-1.5">
                 <span className="flex items-center">
-                  <img src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
                   <p>200 credits</p>
                 </span>
                 <span className="flex items-center">
-                  <img src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
                   <p>$0.05 per image restoration</p>
                 </span>
               </div>
@@ -79,11 +80,11 @@ const buycredits = () => {
               <h1 className="font-bold text-3xl flex justify-center items-center">$20</h1>
               <div className="flex flex-col space-y-1.5">
                 <span className="flex items-center">
-                  <img src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
                   <p>500 credits</p>
                 </span>
                 <span className="flex items-center">
-                  <img src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
+                  <Image src="images/check.png" alt="Logo" className='h-3 w-3 mr-2' />
                   <p>$0.04 per image restoration</p>
                 </span>
               </div>

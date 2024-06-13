@@ -1,4 +1,6 @@
+
 import React, { useRef, useState } from 'react';
+import Image from "next/image"
 
 interface FileInputProps {
     onFileChange: (file: File) => void;
@@ -56,7 +58,7 @@ const FileInput: React.FC<FileInputProps> = ({ onFileChange, onUploadComplete })
                 {selectedFile && (
                     <div>
                         <div className='flex justify-center items-center'>
-                            <img src={URL.createObjectURL(selectedFile)} alt="Selected" style={{ maxHeight: '100px', marginBottom: '10px' }} />
+                            <Image src={URL.createObjectURL(selectedFile)} alt="Selected" style={{ maxHeight: '100px', marginBottom: '10px' }} />
                         </div>
                         <p className='mb-2'>Name: {selectedFile.name}</p>
                         <p className='mb-3'>Size: {(selectedFile.size / 1024 / 1024).toFixed(2)} MB</p>

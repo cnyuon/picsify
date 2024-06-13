@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import { ImageSlider } from "./components/slider/imageslider";
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -39,8 +40,8 @@ export default function Home() {
               </h1>
             </div>
             <div className="image-section flex flex-col md:flex-row items-center gap-4">
-              <img src="images/asianlady.jpg" alt="old" className="fixed-size-image" />
-              <img src="images/out.png" alt="new" className="fixed-size-image" />
+              <Image src="/images/asianlady.jpg" alt="old" className="fixed-size-image" width={350} height={350} />
+              <Image src="/images/out.png" alt="new" className="fixed-size-image"  width={350} height={350} />
             </div>
 
 
@@ -54,8 +55,13 @@ export default function Home() {
             </div>
 
             <div className="image-section flex flex-col md:flex-row items-center gap-4">
-              <img src="images/edsheeranold.jpg" alt="old" className="fixed-size-image" />
-              <img src="images/edsheerannew.jpg" alt="new" className="fixed-size-image" />
+              <div className="image-container">
+                <Image src="/images/edsheeranold.jpg" alt="old" className="fixed-size-image" layout="fill" objectFit="cover" />
+              </div>
+
+              <div className="image-container">
+                <Image src="/images/edsheerannew.jpg" alt="new" className="fixed-size-image" layout="fill" objectFit="cover" />
+              </div>
             </div>
 
             <div className="divider mt-6"></div>
@@ -88,6 +94,12 @@ export default function Home() {
           height: 2px; /* Thickness of the divider */
           background-color: #e5e7eb; /* Light gray color */
           margin-top: 20px; /* Space above the divider */
+        }
+        .image-container {
+          position: relative;
+          width: 350px;
+          height: 350px;
+          overflow: hidden;
         }
       `}</style>
     </>

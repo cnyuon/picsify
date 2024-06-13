@@ -58,7 +58,7 @@ const Results = () => {
                     </div>
 
                     <div>
-                        <p className='text-sm mt-5 text-muted-foreground'>Refresh the page if image doesn't load.</p>
+                        <p className='text-sm mt-5 text-muted-foreground'>Refresh the page if image doesn&apos;t load.</p>
                     </div>
                     <div className='flex justify-center items-center gap-4'>
                         <Link href="/restore">
