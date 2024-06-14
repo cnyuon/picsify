@@ -14,11 +14,13 @@ const Restore = () => {
     const [isUploadComplete, setIsUploadComplete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);  // Loading state
     const router = useRouter();
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 
     useEffect(() => {
         const fetchUserCredits = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/user-credits', {
+                const response = await axios.get(`${apiUrl}/api/user-credits`, {
                     headers: {
                         'Clerk-User-Id': 'user_2h9WAwedsXZcaHaqmBxvOK1hISI' // Replace with actual user ID
                     }
