@@ -14,7 +14,7 @@ const Restore = () => {
     const [isUploadComplete, setIsUploadComplete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);  // Loading state
     const router = useRouter();
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = "https://picsify-backend-2e4780a97926.herokuapp.com";
 
 
     useEffect(() => {
