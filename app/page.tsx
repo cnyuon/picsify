@@ -68,10 +68,10 @@ export default function Home() {
 
             <div className="flex flex-col justify-center items-center sm:flex-row gap-4 mt-10">
                 <div>
-                  <h1 className="mb-5 text-xl font-bold">Get started for free</h1>
-                  <p className="mb-5">You start with 5 free credits.</p>
+                  <h1 className="mb-5 text-xl font-bold">Try it for free</h1>
+                  <p className="mb-10 text-muted-foreground">Pay when you are ready. Start with over 5 credits for free. If you ever need more, you can upgrade.</p>
                   <Button>
-                    <Link href={'/signup'}>Sign up</Link>
+                    <Link href={'/signup'}>Sign up for free</Link>
                   </Button>
                 </div>
           </div>

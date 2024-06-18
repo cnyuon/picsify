@@ -106,7 +106,19 @@ const BuyCredits = () => {
           </AccordionItem>
         </Accordion>
       </div>
-      <div className="divider mt-10"></div>
+      <div className="divider mt-5"></div>
+
+      <div>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>How can I get more credits?</AccordionTrigger>
+            <AccordionContent>You can visit the buy credits page.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+      <div className="divider mt-5"></div>
+
+
     </div>
   );
 };
