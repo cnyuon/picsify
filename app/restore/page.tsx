@@ -24,15 +24,20 @@ const Restore = () => {
   useEffect(() => {
 
     if (!isLoaded) {
+      console.log("User not loaded yet");
       return; // Wait for the user to be loaded
     }
 
     if (!isSignedIn) {
+      console.log("User not signed in");
       return; // Ensure the user is signed in
     }
-    
+
+    console.log("User loaded and signed in:", user);
+
     const fetchUserCredits = async () => {
       try {
+        console.log("Fetching user credits for user ID:", user.id);
         const response = await axios.get(`${API_URL}/api/user-credits`, {
           
           headers: {
