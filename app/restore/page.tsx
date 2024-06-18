@@ -51,7 +51,7 @@ const Restore = () => {
     };
 
     fetchUserCredits();
-  },  [isLoaded, isSignedIn, user]);
+  }, [isLoaded, isSignedIn, user]);
 
 
   // handles the file change
@@ -62,7 +62,7 @@ const Restore = () => {
   };
 
   const uploadFile = async () => {
-    if (!selectedFile) {
+    if (!selectedFile || !user) {
       alert("Please select a file before uploading.");
       return;
     }
@@ -75,9 +75,9 @@ const Restore = () => {
       const response = await axios.post(`${API_URL}/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          "Clerk-User-Id": "user_2h9WAwedsXZcaHaqmBxvOK1hISI", // Replace with actual user ID
+          "Clerk-User-Id": user.id, // Replace with actual user ID
         },
-      });
+      }); 
       console.log(response.data); // Display server response
       router.push(
         `/results?originalImageUrl=${encodeURIComponent(
