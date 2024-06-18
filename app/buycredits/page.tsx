@@ -15,6 +15,8 @@ import Image from "next/image"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
+const API_URL = "https://picsify-backend-2e4780a97926.herokuapp.com";
+
 const BuyCredits = () => {
   const router = useRouter();
   const { user } = useUser();  // Get the user object

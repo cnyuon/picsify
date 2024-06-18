@@ -8,6 +8,8 @@ import { Terminal, Loader } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/clerk-react"; // Import Clerk useUser hook
+
 
 const API_URL = "https://picsify-backend-2e4780a97926.herokuapp.com"; // Replace with your Heroku backend URL
 
@@ -17,13 +19,24 @@ const Restore = () => {
   const [isUploadComplete, setIsUploadComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const router = useRouter();
+  const { user, isLoaded, isSignedIn } = useUser(); // Get the current user from Clerk
 
   useEffect(() => {
+
+    if (!isLoaded) {
+      return; // Wait for the user to be loaded
+    }
+
+    if (!isSignedIn) {
+      return; // Ensure the user is signed in
+    }
+    
     const fetchUserCredits = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/user-credits`, {
+          
           headers: {
-            "Clerk-User-Id": "user_2h9WAwedsXZcaHaqmBxvOK1hISI", // Replace with actual user ID
+            "Clerk-User-Id": user.id, // Replace with actual user ID
           },
         });
         setCount(response.data.credits);
@@ -33,8 +46,10 @@ const Restore = () => {
     };
 
     fetchUserCredits();
-  }, []);
+  },  [isLoaded, isSignedIn, user]);
 
+
+  // handles the file change
   const handleFileChange = (file: File) => {
     setSelectedFile(file);
     setIsUploadComplete(false); // Reset the upload completion state
