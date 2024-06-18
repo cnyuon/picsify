@@ -23,7 +23,7 @@ const BuyCredits = () => {
 
   const handleBuy = async (name: string, amount: number) => {
     try {
-      const response = await axios.post('http://localhost:5000/create-checkout-session', {
+      const response = await axios.post(`${API_URL}/create-checkout-session`, {
         name,
         amount,
         metadata: {
