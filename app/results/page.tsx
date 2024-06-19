@@ -3,35 +3,17 @@
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Switch } from "@/components/ui/switch";
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
-import { resizeImage } from '@/lib/resizeImage';
 
 
-const Results: React.FC = () => {
+const Results = () => {
     const searchParams = useSearchParams();
     const originalImageUrl = searchParams.get('originalImageUrl') || '';
     const processedImageUrl = searchParams.get('processedImageUrl') || '';
     const downloadLinkRef = useRef<HTMLAnchorElement | null>(null);
     const [comparison, setComparison] = useState(false); // Default to side-by-side
-    const [resizedOriginalImage, setResizedOriginalImage] = useState<string>('');
-    const [resizedProcessedImage, setResizedProcessedImage] = useState<string>('');
-
-    useEffect(() => {
-        const handleImageResize = async () => {
-          if (originalImageUrl) {
-            const resizedOriginal = await resizeImage(originalImageUrl as unknown as File, 800, 800);
-            setResizedOriginalImage(resizedOriginal);
-          }
-          if (processedImageUrl) {
-            const resizedProcessed = await resizeImage(processedImageUrl as unknown as File, 800, 800);
-            setResizedProcessedImage(resizedProcessed);
-          }
-        };
-    
-        handleImageResize();
-      }, [originalImageUrl, processedImageUrl]);
 
     const handleDownload = () => {
         if (downloadLinkRef.current) {
@@ -48,7 +30,7 @@ const Results: React.FC = () => {
             <div className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-7">
                 <h1>Results</h1>
             </div>
-            {resizedOriginalImage && resizedProcessedImage ? (
+            {originalImageUrl && processedImageUrl ? (
                 <>
                     <div className='flex gap-3 justify-center items-center'>
                         <p className='text-sm'>Side by Side</p>
@@ -60,19 +42,19 @@ const Results: React.FC = () => {
                         {comparison ? (
                             <div className="compare-slider-container">
                                 <ReactCompareSlider
-                                    itemOne={<ReactCompareSliderImage src={resizedOriginalImage} alt="Original Image" />}
-                                    itemTwo={<ReactCompareSliderImage src={resizedProcessedImage} alt="Processed Image" />}
+                                    itemOne={<ReactCompareSliderImage src={originalImageUrl} alt="Original Image" />}
+                                    itemTwo={<ReactCompareSliderImage src={processedImageUrl} alt="Processed Image" />}
                                 />
                             </div>
                         ) : (
                             <div className="flex flex-col md:flex-row justify-center items-center">
                                 <div className='mt-5 flex flex-col items-center'>
                                     <p className='justify-center flex items-center mb-5'>Original Image</p>
-                                    <img src={resizedOriginalImage} alt="Original" className="fixed-size-image" />
+                                    <img src={originalImageUrl} alt="Original" className="fixed-size-image" />
                                 </div>
                                 <div className='mt-5 flex flex-col items-center'>
                                     <p className='justify-center flex items-center mb-5'>Processed Image</p>
-                                    <img src={resizedProcessedImage} alt="Processed" className="fixed-size-image" />
+                                    <img src={processedImageUrl} alt="Processed" className="fixed-size-image" />
                                 </div>
                             </div>
                         )}
