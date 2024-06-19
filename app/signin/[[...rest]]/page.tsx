@@ -8,7 +8,7 @@ import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 const SignInPage = () => (
   <MaxWidthWrapper>
     <div className="flex justify-center items-center mt-10">
-      <SignIn signUpUrl="/signup"/>
+      <SignIn signUpUrl="/signup" fallbackRedirectUrl="/restore"/>
     </div>
   </MaxWidthWrapper>
 );
