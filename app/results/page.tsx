@@ -3,16 +3,35 @@
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Switch } from "@/components/ui/switch";
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
+import { resizeImage } from '@/lib/resizeImage';
 
-const Results = () => {
+
+const Results: React.FC = () => {
     const searchParams = useSearchParams();
     const originalImageUrl = searchParams.get('originalImageUrl') || '';
     const processedImageUrl = searchParams.get('processedImageUrl') || '';
     const downloadLinkRef = useRef<HTMLAnchorElement | null>(null);
     const [comparison, setComparison] = useState(false); // Default to side-by-side
+    const [resizedOriginalImage, setResizedOriginalImage] = useState<string>('');
+    const [resizedProcessedImage, setResizedProcessedImage] = useState<string>('');
+
+    useEffect(() => {
+        const handleImageResize = async () => {
+          if (originalImageUrl) {
+            const resizedOriginal = await resizeImage(originalImageUrl as unknown as File, 800, 800);
+            setResizedOriginalImage(resizedOriginal);
+          }
+          if (processedImageUrl) {
+            const resizedProcessed = await resizeImage(processedImageUrl as unknown as File, 800, 800);
+            setResizedProcessedImage(resizedProcessed);
+          }
+        };
+    
+        handleImageResize();
+      }, [originalImageUrl, processedImageUrl]);
 
     const handleDownload = () => {
         if (downloadLinkRef.current) {
@@ -41,19 +60,19 @@ const Results = () => {
                         {comparison ? (
                             <div className="compare-slider-container">
                                 <ReactCompareSlider
-                                    itemOne={<ReactCompareSliderImage src={originalImageUrl} alt="Original Image" />}
-                                    itemTwo={<ReactCompareSliderImage src={processedImageUrl} alt="Processed Image" />}
+                                    itemOne={<ReactCompareSliderImage src={resizedOriginalImage} alt="Original Image" />}
+                                    itemTwo={<ReactCompareSliderImage src={resizedProcessedImage} alt="Processed Image" />}
                                 />
                             </div>
                         ) : (
                             <div className="flex flex-col md:flex-row justify-center items-center">
                                 <div className='mt-5 flex flex-col items-center'>
                                     <p className='justify-center flex items-center mb-5'>Original Image</p>
-                                    <img src={originalImageUrl} alt="Original" className="fixed-size-image" />
+                                    <img src={resizedOriginalImage} alt="Original" className="fixed-size-image" />
                                 </div>
                                 <div className='mt-5 flex flex-col items-center'>
                                     <p className='justify-center flex items-center mb-5'>Processed Image</p>
-                                    <img src={processedImageUrl} alt="Processed" className="fixed-size-image" />
+                                    <img src={resizedProcessedImage} alt="Processed" className="fixed-size-image" />
                                 </div>
                             </div>
                         )}
