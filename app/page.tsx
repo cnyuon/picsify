@@ -7,8 +7,12 @@ import Link from "next/link";
 import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import { ImageSlider } from "./components/slider/imageslider";
 import Image from "next/image"
+import { useUser } from "@clerk/nextjs"; // Import the useUser hook
 
 export default function Home() {
+
+  const { user, isLoaded } = useUser(); // Use the hook to get the user
+
   return (
     <>
       <MaxWidthWrapper>
@@ -20,9 +24,15 @@ export default function Home() {
             Do you have old, blurry photos that you want to restore?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-            <Button>
-              <Link href={'/signup'}>Try Piscify for free</Link>
-            </Button>
+          {isLoaded && user ? (
+              <Button>
+                <Link href={'/restore'}>Restore</Link>
+              </Button>
+            ) : (
+              <Button>
+                <Link href={'/signup'}>Try Picsify for free</Link>
+              </Button>
+            )}
           </div>
           <div>
             <p className="text-sm mt-2 text-muted-foreground">(No Credit Card Required)</p>
