@@ -48,7 +48,7 @@ const Results: React.FC = () => {
             <div className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-7">
                 <h1>Results</h1>
             </div>
-            {originalImageUrl && processedImageUrl ? (
+            {resizedOriginalImage && resizedProcessedImage ? (
                 <>
                     <div className='flex gap-3 justify-center items-center'>
                         <p className='text-sm'>Side by Side</p>
