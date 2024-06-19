@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="text-center md:text-left">
                     <p className="text-sm">© 2024 Picsify. All rights reserved.</p>
                 </div>
-                <div className="flex space-x-4 mt-4 md:mt-0 gap-4 mb-4">
+                <div className="flex space-x-4 mt-4 gap-4">
                     <Link href="/restore">
                         <p className="text-sm hover:underline">Restore</p>
                     </Link>
