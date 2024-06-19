@@ -29,14 +29,14 @@ export default function Header() {
                 <div className='hidden md:flex gap-5 items-center'>
                     {isLoaded && !user && (
                         <>
-                            <Link href='/signup'>Sign Up</Link>
-                            <Link href='/signin'>Sign In</Link>
+                            <Link href='/signup'>Sign up</Link>
+                            <Link href='/signin'>Sign in</Link>
                         </>
                     )}
                     {isLoaded && user && (
                         <>
                             <Link href='/restore'>Restore</Link>
-                            <Link href='/buycredits'>Buy Credits</Link>
+                            <Link href='/buycredits'>Buy credits</Link>
                             <UserButton afterSignOutUrl='/' />
                         </>
                     )}
@@ -53,14 +53,14 @@ export default function Header() {
                 <div className='md:hidden flex flex-col items-center gap-5 mt-4'>
                     {isLoaded && !user && (
                         <>
-                            <Link href='/signup' className='block text-center w-full' onClick={closeMenu}>Sign Up</Link>
-                            <Link href='/signin' className='block text-center w-full' onClick={closeMenu}>Sign In</Link>
+                            <Link href='/signup' className='block text-center w-full' onClick={closeMenu}>Sign up</Link>
+                            <Link href='/signin' className='block text-center w-full' onClick={closeMenu}>Sign in</Link>
                         </>
                     )}
                     {isLoaded && user && (
                         <>
                             <Link href='/restore' className='block text-center w-full' onClick={closeMenu}>Restore</Link>
-                            <Link href='/buycredits' className='block text-center w-full' onClick={closeMenu}>Buy Credits</Link>
+                            <Link href='/buycredits' className='block text-center w-full' onClick={closeMenu}>Buy credits</Link>
                             <div className='block text-center w-full'>
                                 <UserButton afterSignOutUrl='/' />
                             </div>
