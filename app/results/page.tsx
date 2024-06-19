@@ -46,7 +46,7 @@ const Results = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="flex flex-col md:flex-row items-center">
+                            <div className="flex flex-col md:flex-row justify-center items-center">
                                 <div className='mt-5'>
                                     <p className='justify-center flex items-center mb-5'>Original Image</p>
                                     <img src={originalImageUrl} alt="Original" className="fixed-size-image" />
