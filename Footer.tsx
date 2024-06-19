@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Footer = () => {
     return (
         <footer className="bg-gray-800 text-white py-5 mt-10 border-t">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center mb-4 mt-4">
                 <div className="text-center md:text-left">
                     <p className="text-sm">© 2024 Picsify. All rights reserved.</p>
                 </div>
