@@ -21,6 +21,8 @@ const Results = () => {
     };
 
     const processedFilename = processedImageUrl.split('/').pop();
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
 
     return (
         <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
@@ -68,7 +70,7 @@ const Results = () => {
                             <Button onClick={handleDownload}>Download</Button>
                             <a
                                 ref={downloadLinkRef}
-                                href={`http://localhost:5000/download/${processedFilename}`}
+                                href={`${API_URL}/download/${processedFilename}`}
                                 download="enhanced_image.jpg"
                                 style={{ display: 'none' }}
                             >
