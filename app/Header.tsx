@@ -36,7 +36,7 @@ export default function Header() {
                     {isLoaded && user && (
                         <>
                             <Link href='/restore'>Restore</Link>
-                            <Link href='/buycredits'>Buy credits</Link>
+                            <Link href='/buycredits'>Buy Credits</Link>
                             <UserButton afterSignOutUrl='/' />
                         </>
                     )}
@@ -60,7 +60,7 @@ export default function Header() {
                     {isLoaded && user && (
                         <>
                             <Link href='/restore' className='block text-center w-full' onClick={closeMenu}>Restore</Link>
-                            <Link href='/buycredits' className='block text-center w-full' onClick={closeMenu}>Buy credits</Link>
+                            <Link href='/buycredits' className='block text-center w-full' onClick={closeMenu}>Buy Credits</Link>
                             <div className='block text-center w-full'>
                                 <UserButton afterSignOutUrl='/' />
                             </div>
