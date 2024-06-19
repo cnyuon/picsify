@@ -30,8 +30,19 @@ const BuyCredits = () => {
           user_id: user?.id,  // Pass the user ID as metadata
         },
       });
+
+      console.log("Response from /create-checkout-session:", response.data);
       const { id } = response.data;
+
+      if (!id) {
+        console.error("Stripe Session ID is missing in the response.");
+        return;
+      }
+
+      console.log("Stripe Session ID:", id);
+
       const stripe = await stripePromise;
+
       if (stripe) {
         const { error } = await stripe.redirectToCheckout({ sessionId: id });
         if (error) {
@@ -41,6 +52,9 @@ const BuyCredits = () => {
     } catch (error) {
       console.error('Error creating checkout session:', error);
     }
+
+
+    
   };
 
   return (
