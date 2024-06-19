@@ -14,6 +14,10 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
         <div className='flex flex-col md:flex-row justify-between items-center py-4 px-7 border-b w-full'>
             <div className='container mx-auto flex justify-between items-center w-full'>
@@ -49,14 +53,14 @@ export default function Header() {
                 <div className='md:hidden flex flex-col items-center gap-5 mt-4'>
                     {isLoaded && !user && (
                         <>
-                            <Link href='/signup' className='block text-center w-full'>Sign Up</Link>
-                            <Link href='/signin' className='block text-center w-full'>Sign In</Link>
+                            <Link href='/signup' className='block text-center w-full' onClick={closeMenu}>Sign Up</Link>
+                            <Link href='/signin' className='block text-center w-full' onClick={closeMenu}>Sign In</Link>
                         </>
                     )}
                     {isLoaded && user && (
                         <>
-                            <Link href='/restore' className='block text-center w-full'>Restore</Link>
-                            <Link href='/buycredits' className='block text-center w-full'>Buy Credits</Link>
+                            <Link href='/restore' className='block text-center w-full' onClick={closeMenu}>Restore</Link>
+                            <Link href='/buycredits' className='block text-center w-full' onClick={closeMenu}>Buy Credits</Link>
                             <div className='block text-center w-full'>
                                 <UserButton afterSignOutUrl='/' />
                             </div>
