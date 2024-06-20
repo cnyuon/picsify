@@ -24,6 +24,8 @@ const Results = () => {
     const userId = processedFilename ? processedFilename.split('_')[1] : ''; // Extract user ID from the filename
     const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
+    console.log(`Download URL: ${API_URL}/download/${userId}/${processedFilename}`);
+
     return (
         <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
             <div className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-7">
@@ -67,15 +69,17 @@ const Results = () => {
                             <Button className="mt-10" variant="outline">Enhance Another Image</Button>
                         </Link>
                         <div className="mt-10">
-                            <Button onClick={handleDownload}>Download</Button>
-                            <a
-                                ref={downloadLinkRef}
-                                href={`${API_URL}/download/${userId}/${processedFilename}`}
-                                download="enhanced_image.jpg"
-                                style={{ display: 'none' }}
-                            >
-                                Download
-                            </a>
+                            <Button onClick={handleDownload} disabled={!processedFilename}>Download</Button>
+                            {processedFilename && (
+                                <a
+                                    ref={downloadLinkRef}
+                                    href={`${API_URL}/download/${userId}/${processedFilename}`}
+                                    download="enhanced_image.jpg"
+                                    style={{ display: 'none' }}
+                                >
+                                    Download
+                                </a>
+                            )}
                         </div>
                     </div>
 
