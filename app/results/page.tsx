@@ -20,8 +20,7 @@ const Results = () => {
         }
     };
 
-    const processedFilename = processedImageUrl ? processedImageUrl.split('/').pop() : undefined;
-    const userId = processedFilename ? processedFilename.split('_')[1] : ''; // Extract user ID from the filename
+    const processedFilename = processedImageUrl ? processedImageUrl.split('/').pop() : '';
     const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
     return (
@@ -70,7 +69,7 @@ const Results = () => {
                             <Button onClick={handleDownload}>Download</Button>
                             <a
                                 ref={downloadLinkRef}
-                                href={`${API_URL}/download/${userId}/${processedFilename}`}
+                                href={`${API_URL}/download/${processedFilename}`}
                                 download="enhanced_image.jpg"
                                 style={{ display: 'none' }}
                             >
