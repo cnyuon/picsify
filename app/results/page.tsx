@@ -21,7 +21,7 @@ const Results = () => {
     };
 
     const processedFilename = processedImageUrl.split('/').pop();
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://picsify-backend-2e4780a97926.herokuapp.com';
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
     return (
         <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
