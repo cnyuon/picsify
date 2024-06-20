@@ -20,9 +20,8 @@ const Results = () => {
         }
     };
 
-    // Ensure processedFilename is defined and extract userId properly
-    const processedFilename = processedImageUrl.split('/').pop() || '';
-    const userId = processedFilename.split('_')[1] || ''; // Extract user ID from the filename
+    const processedFilename = processedImageUrl ? processedImageUrl.split('/').pop() : undefined;
+    const userId = processedFilename ? processedFilename.split('_')[1] : ''; // Extract user ID from the filename
     const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
     return (
