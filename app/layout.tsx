@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./Header";
 import Footer from "@/Footer";
+import { Analytics } from '@vercel/analytics/react';
 
 
 
@@ -28,7 +29,9 @@ export default function RootLayout({
             {children}
         </main>
         <Footer />
+        
       </ClerkProvider>
+      <Analytics />
       </body>
     </html>
   

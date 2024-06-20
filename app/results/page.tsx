@@ -49,11 +49,11 @@ const Results = () => {
                         ) : (
                             <div className="flex flex-col md:flex-row justify-center items-center">
                                 <div className='mt-5 flex flex-col items-center'>
-                                    <p className='justify-center flex items-center mb-5'>Original Image</p>
+                                    <p className='justify-center flex items-center mb-5 text-muted-foreground'>Original Image</p>
                                     <img src={originalImageUrl} alt="Original" className="fixed-size-image" />
                                 </div>
                                 <div className='mt-5 flex flex-col items-center'>
-                                    <p className='justify-center flex items-center mb-5'>Processed Image</p>
+                                    <p className='justify-center flex items-center mb-5 text-muted-foreground'>Processed Image</p>
                                     <img src={processedImageUrl} alt="Processed" className="fixed-size-image" />
                                 </div>
                             </div>
