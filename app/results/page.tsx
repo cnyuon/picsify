@@ -7,7 +7,6 @@ import { useRef, useState } from 'react';
 import { Switch } from "@/components/ui/switch";
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
-
 const Results = () => {
     const searchParams = useSearchParams();
     const originalImageUrl = searchParams.get('originalImageUrl') || '';
@@ -22,8 +21,7 @@ const Results = () => {
     };
 
     const processedFilename = processedImageUrl.split('/').pop();
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://picsify-backend-2e4780a97926.herokuapp.com';
 
     return (
         <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
