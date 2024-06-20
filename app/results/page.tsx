@@ -69,17 +69,15 @@ const Results = () => {
                             <Button className="mt-10" variant="outline">Enhance Another Image</Button>
                         </Link>
                         <div className="mt-10">
-                            <Button onClick={handleDownload} disabled={!processedFilename}>Download</Button>
-                            {processedFilename && (
-                                <a
-                                    ref={downloadLinkRef}
-                                    href={`${API_URL}/download/${userId}/${processedFilename}`}
-                                    download="enhanced_image.jpg"
-                                    style={{ display: 'none' }}
-                                >
-                                    Download
-                                </a>
-                            )}
+                            <Button onClick={handleDownload}>Download</Button>
+                            <a
+                                ref={downloadLinkRef}
+                                href={`${API_URL}/download/${userId}/${processedFilename}`}
+                                download="enhanced_image.jpg"
+                                style={{ display: 'none' }}
+                            >
+                                Download
+                            </a>
                         </div>
                     </div>
 
