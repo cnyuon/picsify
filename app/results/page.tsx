@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useRef, useState } from 'react';
 import { Switch } from "@/components/ui/switch";
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
+import { useUser } from "@clerk/clerk-react"; // Import Clerk useUser hook
 
 const Results = () => {
     const searchParams = useSearchParams();
@@ -13,6 +14,7 @@ const Results = () => {
     const processedImageUrl = searchParams.get('processedImageUrl') || '';
     const downloadLinkRef = useRef<HTMLAnchorElement | null>(null);
     const [comparison, setComparison] = useState(false); // Default to side-by-side
+    const { user } = useUser(); // Get the current user from Clerk
 
     const handleDownload = () => {
         if (downloadLinkRef.current) {
@@ -69,7 +71,7 @@ const Results = () => {
                             <Button onClick={handleDownload}>Download</Button>
                             <a
                                 ref={downloadLinkRef}
-                                href={`${API_URL}/download/${processedFilename}`}
+                                href={`${API_URL}/download/${user?.id}/${processedFilename}`}
                                 download="enhanced_image.jpg"
                                 style={{ display: 'none' }}
                             >
