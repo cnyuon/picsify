@@ -94,6 +94,11 @@ const Restore = () => {
   };
 
   const handleUploadClick = () => {
+    if (!selectedFile) {
+      alert("Please select a file before uploading.");
+      return;
+    }
+
     if (count && count > 0) {
       uploadFile();
       setCount(count - 1);
