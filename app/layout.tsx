@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./Header";
 import Footer from "@/Footer";
 import { Analytics } from '@vercel/analytics/react';
-import { Head } from "next/document";
+import  Head from "next/head";
 import Script from "next/script";
 
 
