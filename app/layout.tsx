@@ -24,8 +24,9 @@ export default function RootLayout({
 
     <html lang="en" className="h-full">
       <Head>
-        <meta name="google-site-verification" content="YOUR_META_TAG_CONTENT" />
+        {/* Google Analytics */}
         <Script
+          async
           src={`https://www.googletagmanager.com/gtag/js?id=G-LQEB98X9EH`}
           strategy="afterInteractive"
         />
@@ -34,7 +35,6 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-LQEB98X9EH');
           `}
         </Script>
