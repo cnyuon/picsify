@@ -19,12 +19,7 @@ export default function RootLayout({
       <Head>
         <title>My Website</title>
         {/* Add other meta tags here */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3097071261671376"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        
       </Head>
       <body className={`relative h-full font-sans antiliased ${inter.className}`}>
         <ClerkProvider>
@@ -49,6 +44,13 @@ export default function RootLayout({
             gtag('config', 'G-LQEB98X9EH');
           `}
         </Script>
+
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3097071261671376"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
